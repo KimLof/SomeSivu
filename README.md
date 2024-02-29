@@ -20,7 +20,7 @@ SomeSivu on yksinkertainen sosiaalisen median alusta, joka mahdollistaa käyttä
 ## Asennus ja käyttöönotto
 
 1. Kloonaa repo: `git clone https://github.com/KimLof/SomeSivu.git`
-2. Asenna riippuvuudet: `cd somesovellus` `npm install`
+2. Asenna riippuvuudet: `cd somesivu` `npm install`
 3. Konfiguroi tietokantayhteys `config.json`-tiedostossa.
 4. Käynnistä sovellus: `node api.js`
 5. Avaa selaimessa osoitteessa `http://localhost:3000`.
