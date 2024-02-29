@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Rekisteröidy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-container">
+    <form id="registerForm">
+        <h2>Rekisteröidy</h2>
+        <div class="input-group">
+            <label for="newUsername">Käyttäjätunnus</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+        </div>
+        <div class="input-group">
+            <label for="newEmail">Sähköposti</label>
+            <input type="email" id="newEmail" name="newEmail" required>
+        </div>
+        <div class="input-group">
+            <label for="newPassword">Uusi salasana</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+        </div>
+        <div class="input-group">
+            <label for="newPasswordCheck">Vahvista uusi salasana</label>
+            <input type="password" id="newPasswordCheck" name="newPasswordCheck" required>
+        </div>
+        <button type="submit">Rekisteröidy</button>
+    </form>
+</div>
+
+<script src="/js/registerApp.js"></script>
+</body>
+</html>

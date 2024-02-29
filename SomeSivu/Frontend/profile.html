@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Käyttäjäprofiili</title>
+    <link rel="stylesheet" href="styleProfile.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-container">
+            <a href="/Feed">Feed</a>
+            <a href="/messages">Viestit</a>
+            <a href="/settings">Asetukset</a>
+            <a href="/login">Kirjaudu ulos</a>
+        </div>
+    </div>
+
+    <main class="profile-main-container">
+
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <h2>Käyttäjänimi</h2>
+                    <img src="profiilikuva.png" alt="Profiilikuva" class="profile-pic">
+                    <p class="location">Location: </p>
+                    <p class="joined">Joined: </p>
+                    <p class="postsCount">Posts: 0</p>
+                </div>
+                <div class="profile-info">
+                    <h5 class="bio">Bio </h5>
+                    <button id="editProfileButton" class="editProfileButton">Edit profile</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="profile-posts-container" id="posts-container"></div>
+
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit profile</h2>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="profilepicture">Profile picture url :D</label>
+                    <input id="profilepicture" name="profilepicture"></input>
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio"></textarea>
+                    <button type="submit" id="saveProfileButton">Save</button>
+                </form>
+            </div>
+
+
+    </main>
+    <script src="/js/profileApp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/editProfile.js"></script>
+</body>
+
+</html>

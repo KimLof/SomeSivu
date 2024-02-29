@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Asetukset</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="settings-container">
+    <h1>Asetukset</h1>
+    
+    <form id="userSettings">
+        <fieldset>
+            <legend>Käyttäjätiedot</legend>
+            <label for="username">Käyttäjänimi:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Sähköposti:</label>
+            <input type="email" id="email" name="email" required>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Salasanan vaihto</legend>
+            <label for="currentPassword">Nykyinen salasana:</label>
+            <input type="password" id="currentPassword" name="currentPassword" required>
+            
+            <label for="newPassword">Uusi salasana:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+            
+            <label for="confirmPassword">Vahvista uusi salasana:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </fieldset>
+        
+        <button type="submit">Tallenna muutokset</button>
+    </form>
+    
+    <button class="delete-account">Poista tili</button>
+</div>
+
+</body>
+</html>

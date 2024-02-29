@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "consolidate": "^1.0.3",
+    "express": "^4.18.2",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "nodemon": "^3.0.3",
+    "path": "^0.12.7"
+  },
+  "name": "titeproj",
+  "version": "1.0.0",
+  "description": "Tietotekniikka projekti ryhmä 11 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sav-eta8000-24k@dev.azure.com/sav-eta8000-24k/group-11/_git/group-11"
+  },
+  "author": "Teemu Luostarinen , Jasmin Hietala, Kim Löfström, Ossi Miettinen",
+  "license": "ISC"
+}

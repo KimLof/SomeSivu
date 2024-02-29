@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Some</title>
+    <link rel="stylesheet" href="styleFeed.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <header>
+    <nav class="top-nav">
+        <ul>
+            <li><a href="/profile?profileId=own">Profiili</a></li>
+            <li><a href="/messages">Viestit</a></li>
+            <li><a href="/settings">Asetukset</a></li>
+            <li><a href="/login" id="logout-link">Kirjaudu ulos</a></li> <!-- tää pitäis lisätä myös omalle prfiilille-->
+        </ul>                                                            <!--Poistaa jwt tokenin ku painaa tosta :P-->
+    </nav>
+</header>
+
+<div id="user-search">
+    <input type="text" id="search-input" placeholder="Search for users">
+    <button id="search-button">Search</button>
+</div>
+<div id="user-search-results">
+    <!-- HAKUTULOKSET TÄHÄN -->
+</div>
+
+
+    <main class="feed">
+
+        <div id="hello-user">
+            <h3>Hello&nbsp;</h3> <h3 id="user-username"> Käyttäjänimi </h3><h3>! </h3>
+            <button id="create-post-button">Create post</button>
+        </div>
+        
+        
+        <button id="toggle-debug">Toggle Debug Data</button>
+
+        <!-- The Modal -->
+        <div id="create-post-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="create-post-form">
+                    <h2>Create a new post</h2>
+                    <textarea id="post-content-textarea" placeholder="Write your post here" required></textarea>
+                    <button type="submit" id="send-post-button">Send Post</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="postsContainer"></div> <!-- Tämä renderöi postaukset someFeed.js:ssä -->
+    </main>
+
+
+    <script src="/js/someFeed.js"></script>
+    <script src="/js/createPost.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #92b0bf;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Keskitä elementit pystysuunnassa */
+}
+
+.logo-container {
+    background-color: #92b0bf;
+    padding-top: 50px;
+
+}
+
+
+.login-container {
+    background: #cedbe1;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(17, 16, 16, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    margin-left: 20px;
+    padding-right: 40px;
+    width: 230px;
+    color: #078ecd;
+    font-style: bold;
+    input[type="text"],
+    input[type="password"] {
+        
+        padding: 10px;
+        margin-top: 5px;
+        border-color: #519dc1; /* Määritä reunan väri */
+        border-radius: 300px;
+    }
+    
+}
+
+.login-title {
+    color: #519dc1;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #f3f6f7;
+
+}
+
+
+button {
+    width: 45%;
+    margin-left: 140px;
+    padding: 10px;
+    background-color: #519dc1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.profile-container {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-posts .post {
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+button.delete-account {
+    background-color: #dc3545;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.settings-container {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.settings-container h1 {
+    text-align: center;
+}

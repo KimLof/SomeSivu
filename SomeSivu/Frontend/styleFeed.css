@@ -1,0 +1,420 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9eff1;
+    margin: 0;
+    padding: 0;
+}
+
+.feed {
+    padding: 50px 20px;
+    padding-top: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.top-nav {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.top-nav ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top-nav li {
+    padding: 10px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+#hello-user {
+    display: flex;
+    align-items: center;
+    /* Vertically center the content */
+    justify-content: center;
+    /* Horizontally center the content */
+    /* ... other styles ... */
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+
+#create-post-button {
+    background-color: #4CAF50;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    color: white;
+    /* White text */
+    padding: 10px 32px;
+    /* Adjust padding to reduce height */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 16px;
+    margin: 4px 2px 4px auto;
+    /* Push button to the right */
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    transition-duration: 0.4s;
+    /* Transition effects */
+    border-radius: 12px;
+    /* Rounded corners */
+}
+
+#create-post-button:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}
+
+
+
+.post {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 20px 0;
+}
+
+.post button {
+    margin-bottom: 10px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.post-header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.post-userdata {
+    margin-left: 10px;
+}
+
+.post-userdata p {
+    color: gray;
+}
+
+.post-buttons img {
+    margin-right: 10px;
+}
+
+.post-likes-comments {
+    position: absolute;
+    /* This allows you to specify the position of these sections in relation to the post container */
+    top: 0;
+    /* This positions the sections at the top of the post container */
+    right: 0;
+    /* This positions the sections at the right of the post container */
+    padding: 10px;
+}
+
+.likes-count,
+#comments-count {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-likes-comments img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+#comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#comments-container input {
+    width: 80%;
+    height: 25px;
+    /* display: none; */
+}
+
+#comments-display img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.comment-datetime {
+    color: gray;
+    font-size: 0.8em;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.comment {
+    display: flex;
+    align-items: start;
+}
+
+.post p {
+    margin: 0;
+}
+
+.post h2 {
+    margin: 2px 0;
+    cursor: pointer;
+}
+
+.comment h4 {
+    margin: 2px 0;
+}
+
+#likes-section {
+    margin-top: 10px;
+}
+
+.modal,
+#createPostModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content,
+#createPostModal .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+
+/* Add Animation to modal */
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+    }
+
+.modal-content h2 {
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    /* Center the h2 element */
+}
+
+#create-post-form button[type="submit"] {
+    background-color: #4CAF50;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    color: white;
+    /* White text */
+    padding: 15px 32px;
+    /* Some padding */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    transition-duration: 0.4s;
+    /* Transition effects */
+}
+
+#create-post-form button[type="submit"]:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}
+
+.modal-content {
+    position: relative;
+    /* Needed to position the button */
+}
+
+.modal-content h2 {
+    margin: 0;
+}
+
+#post-content-textarea {
+    width: 100%;
+    /* Full-width */
+    height: 200px;
+    /* Bigger height */
+    padding: 15px;
+    /* Some padding */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays inside the area */
+    border: 2px solid #ccc;
+    /* Grey border */
+    border-radius: 4px;
+    /* Rounded borders */
+    background-color: #f8f8f8;
+    /* Light grey background */
+    resize: none;
+    /* Disable resizing */
+    font-size: 18px;
+    /* Increase font size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.debug-data {
+    display: none;
+}
+
+.hello-user {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.like-button {
+    background-color: lightblue;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    color: black;
+    /* White text */
+    padding: 8px 16px;
+    /* Some padding */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    border-radius: 12px;
+    /* Rounded corners */
+    transition-duration: 0.4s;
+    /* Transition effect */
+}
+
+.like-button:hover {
+    background-color: blue;
+    /* Change background on hover */
+}
+
+.comment-button {
+    background-color: lightgreen;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    color: black;
+    /* White text */
+    padding: 8px 16px;
+    /* Some padding */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    border-radius: 12px;
+    /* Rounded corners */
+    transition-duration: 0.4s;
+    /* Transition effect */
+}
+
+.comment-button:hover {
+    background-color: green;
+    /* Change background on hover */
+}
+
+.send-comment-button {
+    background-color: lightgreen;
+    /* Green background */
+    border: none;
+    /* Remove border */
+    color: black;
+    /* White text */
+    padding: 8px 16px;
+    /* Some padding */
+    text-align: center;
+    /* Centered text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* Mouse pointer on hover */
+    border-radius: 12px;
+    /* Rounded corners */
+    transition-duration: 0.4s;
+    /* Transition effect */
+}
+
+.send-button:hover {
+    background-color: green;
+    /* Change background on hover */
+}

@@ -1,0 +1,419 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9eff1;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+.navbar-container {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 16px;
+  display: inline-block;
+}
+
+
+.profile-main-container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.profile-container {
+  flex: 1;
+  padding: 20px;
+  max-width: 300px;
+  margin-top: 30px;
+}
+
+.profile-posts-container {
+  flex: 3;
+  padding: 20px;
+  margin-top: 30px;
+  max-width: 800px;
+}
+
+.profile-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.profile-header p {
+  margin: 5px 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.profile-info h5 {
+  margin: 10px 0;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.profile-card h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+#bio {
+  height: 200px;
+  font-size: 14px;
+}
+
+.editProfileButton {
+  background-color: pink;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.editProfileButton:hover {
+  background-color: purple;
+}
+
+
+.post {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 20px 0;
+}
+
+.post button {
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.post-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10%;
+  margin-right: 10px;
+}
+
+.post-userdata {
+  margin-left: 10px;
+}
+
+.post-userdata p {
+  color: gray;
+}
+
+.post-buttons img {
+  margin-right: 10px;
+}
+
+.post-likes-comments {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.likes-count,
+#comments-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-likes-comments img {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.comment {
+  display: flex;
+  align-items: start;
+}
+
+#comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#comments-container input {
+  width: 80%;
+  height: 25px;
+}
+
+#comments-display img {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-datetime {
+  color: gray;
+  font-size: 0.8em;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+
+
+.post p {
+  margin: 0;
+}
+
+.post h2 {
+  margin: 2px 0;
+}
+
+.comment h4 {
+  margin: 2px 0;
+}
+
+#likes-section {
+  margin-top: 10px;
+}
+
+.debug-data {
+  display: none;
+}
+
+.like-button {
+  background-color: lightblue;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.like-button:hover {
+  background-color: blue;
+}
+
+.comment-button {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.comment-button:hover {
+  background-color: green;
+}
+
+.send-comment-button {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.send-button:hover {
+  background-color: green;
+}
+
+/* profiilin muokkaus modali*/
+#editProfileModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+#editProfileModal .modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Add Animation to modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.modal-content h2 {
+  color: #333;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal-content label {
+  margin-bottom: 5px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: lightgray;
+  font-size: 14px;
+}
+
+.modal-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  /* Centers the text */
+}
+
+
+#saveProfileButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #008CBA;
+  /* Blue */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#saveProfileButton:hover {
+  background-color: #007B9A;
+  /* Darker blue */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Media tekee responsiiviseksi */
+@media (max-width: 768px) {
+  .profile-container {
+    padding-top: 50px;
+  }
+
+  .profile-card,
+  .posts-container {
+    width: 90%;
+  }
+
+  .navbar-container {
+    justify-content: center;
+  }
+}
