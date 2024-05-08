@@ -25,6 +25,3 @@ SomeSivu is a simple social media platform that allows users to register, log in
 4. Start the application: `node api.js`
 5. Open your browser and navigate to `http://localhost:3000`.
 
-## Development
-
-The application is still in development, and new features are being added continuously. The frontend part is particularly incomplete, and the user interface requires a lot of work. On the backend side, the focus is primarily on implementing the basic features of the application and ensuring security.
