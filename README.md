@@ -1,30 +1,30 @@
 # SomeSivu
 
-SomeSivu on yksinkertainen sosiaalisen median alusta, joka mahdollistaa käyttäjien rekisteröitymisen, sisäänkirjautumisen, postausten luomisen, kommentoinnin, tykkäämisen ja yksityisviestien lähettämisen. Sovellus on toteutettu käyttäen "vanilla" HTML:ää, JavaScriptiä (ilman ulkopuolisia kirjastoja), CSS:ää ja Node.js:tä backend-palvelimena. Tietokantana toimii MongoDB.
+SomeSivu is a simple social media platform that allows users to register, log in, create posts, comment, like, and send private messages. The application is implemented using "vanilla" HTML, JavaScript (without external libraries), CSS, and Node.js as the backend server. MongoDB is used as the database.
 
-## Ominaisuudet
+## Features
 
-- **Rekisteröityminen ja kirjautuminen**: Käyttäjät voivat luoda uuden käyttäjätilin ja kirjautua sisään.
-- **Postausten luominen**: Kirjautuneet käyttäjät voivat luoda uusia postauksia.
-- **Kommentointi**: Käyttäjät voivat kommentoida olemassa olevia postauksia.
-- **Tykkäykset**: Postauksiin ja kommentteihin voi reagoida "tykkäämällä".
-- **Yksityisviestit**: Mahdollisuus lähettää yksityisviestejä toisille käyttäjille.
-- **Profiilien tarkastelu**: Käyttäjät voivat tarkastella toistensa profiileja.
+- **Registration and Login**: Users can create a new account and log in.
+- **Post Creation**: Logged-in users can create new posts.
+- **Commenting**: Users can comment on existing posts.
+- **Likes**: Reactions such as "likes" can be given to posts and comments.
+- **Private Messages**: Ability to send private messages to other users.
+- **Profile Viewing**: Users can view each other's profiles.
 
-## Teknologiat
+## Technologies
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js, Express.js
-- **Tietokanta**: MongoDB
+- **Database**: MongoDB
 
-## Asennus ja käyttöönotto
+## Installation and Deployment
 
-1. Kloonaa repo: `git clone https://github.com/KimLof/SomeSivu.git`
-2. Asenna riippuvuudet: `cd somesivu` `npm install`
-3. Konfiguroi tietokantayhteys `config.json`-tiedostossa.
-4. Käynnistä sovellus: `node api.js`
-5. Avaa selaimessa osoitteessa `http://localhost:3000`.
+1. Clone the repo: `git clone https://github.com/KimLof/SomeSivu.git`
+2. Install dependencies: `cd somesivu` `npm install`
+3. Configure the database connection in the `config.json` file.
+4. Start the application: `node api.js`
+5. Open your browser and navigate to `http://localhost:3000`.
 
-## Kehitys
+## Development
 
-Sovellus on vielä kehitysvaiheessa, ja uusia ominaisuuksia lisätään jatkuvasti. Frontend-puoli on vielä erityisen keskeneräinen, ja käyttöliittymä kaipaa paljon työtä. Backend-puolella keskitytään ensisijaisesti sovelluksen perusominaisuuksien toteuttamiseen ja tietoturvan varmistamiseen.
+The application is still in development, and new features are being added continuously. The frontend part is particularly incomplete, and the user interface requires a lot of work. On the backend side, the focus is primarily on implementing the basic features of the application and ensuring security.
