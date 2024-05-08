@@ -1,42 +1,102 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
     <meta charset="UTF-8">
-    <title>Asetukset</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Settings</title>
+    <link rel="stylesheet" href="styleLogin.css">
 </head>
-<body>
 
-<div class="settings-container">
-    <h1>Asetukset</h1>
-    
-    <form id="userSettings">
-        <fieldset>
-            <legend>Käyttäjätiedot</legend>
-            <label for="username">Käyttäjänimi:</label>
-            <input type="text" id="username" name="username" required>
-            
-            <label for="email">Sähköposti:</label>
-            <input type="email" id="email" name="email" required>
-        </fieldset>
-        
-        <fieldset>
-            <legend>Salasanan vaihto</legend>
-            <label for="currentPassword">Nykyinen salasana:</label>
-            <input type="password" id="currentPassword" name="currentPassword" required>
-            
-            <label for="newPassword">Uusi salasana:</label>
-            <input type="password" id="newPassword" name="newPassword" required>
-            
-            <label for="confirmPassword">Vahvista uusi salasana:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-        </fieldset>
-        
-        <button type="submit">Tallenna muutokset</button>
-    </form>
-    
-    <button class="delete-account">Poista tili</button>
-</div>
+<body>
+    <a href="/Feed" class="logo-link">
+        <img src="pictures/pupulogo.jpg" alt="Logo" class="logo-image" width="250" height="150">
+    </a>
+
+
+    <div class="container">
+        <header>
+            <nav class="top-nav" id="top-nav">
+                <ul>
+                    <li>
+                        <nav class="search-nav">
+                            <div id="user-search">
+                                <input type="text" id="search-input" placeholder="Search for users">
+                                <div id="user-search-results">
+                                    <!-- HAKUTULOKSET TÄHÄN -->
+                                </div>
+                            </div>
+                        </nav>
+                    </li>
+                    <li> <a href="/Feed">Feed</a></li>
+                    <li><a href="/profile?profileId=own">Profile</a></li>
+                    <li><a href="/Friends">Friends</a></li>
+                    <li class="notification-li" id="notification-icon">
+                        <a id="notification-text">Notifications</a>
+                        <div class="dropdown-content">
+                            <!-- Notifications will be dynamically inserted here -->
+                        </div>
+                    </li>
+                    <li><a href="/settings">Settings</a></li>
+                    <li><a href="/login" id="logout-link">Logout</a></li>
+                </ul>
+
+            </nav>
+
+
+
+
+        </header>
+
+        <div class="logo-container">
+
+        </div>
+
+        <div class="settings-container">
+            <h2 class="login-title">Käyttäjätiedot</h2>
+
+            <form id="userSettings">
+                <fieldset>
+                    <legend>Käyttäjätiedot</legend>
+
+                    <div class="input-group">
+                        <label for="username">Käyttäjänimi:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="email">Sähköposti:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Salasanan vaihto</legend>
+                    <div class="input-group">
+                        <label for="currentPassword">Nykyinen salasana:</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required>
+
+                        <label for="newPassword">Uusi salasana:</label>
+                        <input type="password" id="newPassword" name="newPassword">
+
+                        <label for="confirmPassword">Vahvista uusi salasana:</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+
+                </fieldset>
+                <div class="settings-buttons">
+                    <button type="submit" class="submit">Tallenna muutokset</button>
+                    <button class="delete-account" id="delete-account">Poista tili</button>
+                </div>
+
+
+            </form>
+
+
+        </div>
+    </div>
+
+    <script src="/js/settings.js"></script>
+
 
 </body>
+
 </html>

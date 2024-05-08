@@ -1,0 +1,683 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #92b0bf;
+  margin: 0;
+  padding: 0;
+}
+
+.top-nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  right: 0;
+  height: 50px;
+  top: 0;
+  z-index: 1000;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  transition: top 0.3s ease; /* Lisätään CSS-transitio */
+}
+#search-input {
+  padding: 8px 16px;
+  margin-right: 8px;
+  font-size: 16px; /* esimerkki fontin koosta */
+  border: 1px solid #ccc; /* esimerkki reunuksesta */
+  border-radius: 4px; /* pyöristetyt reunat */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+
+}
+
+.notification-item{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+}
+
+.notification-item:hover{
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.top-nav ul {
+  
+  list-style: none;
+  padding-left: 0;
+  margin-top: 5px;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  height: 30px;
+}
+
+
+#user-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  position: relative; /* Tämä mahdollistaa lasten absoluuttisen sijoittelun suhteessa tähän elementtiin */
+  height: 20px;
+
+}
+
+#search-input {
+  padding: 8px 16px;
+  margin-right: 8px;
+  font-size: 16px; /* esimerkki fontin koosta */
+  border: 1px solid #ccc; /* esimerkki reunuksesta */
+  border-radius: 4px; /* pyöristetyt reunat */
+}
+
+/* Hakutulosten yleinen tyyli */
+#user-search-results {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background-color: #FFF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 0 0 4px 4px;
+  z-index: 1000;
+  width: 250px; /* Tässä asetetaan leveys, voi säätää tarpeen mukaan */
+}
+
+/* Yksittäisen hakutuloksen tyyli */
+.user-search-item {
+  display: flex;
+  align-items: center; /* Asetetaan elementit linjaan keskenään */
+  padding: 8px 16px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#user-search-results div {
+  padding: 8px 16px; /* Tilaa ympärille */
+  border-bottom: 1px solid #ccc; /* Erotin viivat */
+  cursor: pointer; /* Kursori vihjeenä klikkauksesta */
+}
+
+#user-search-results div:last-child {
+  border-bottom: none; /* Viimeiselle ei alaviivaa */
+}
+/* Profiilikuvan tyyli */
+.profile-picture {
+  width: 30px; /* Säädä kuvan kokoa tarpeen mukaan */
+  height: 30px; /* Säädä kuvan kokoa tarpeen mukaan */
+  border-radius: 50%; /* Pyöristetty kuva */
+  margin-right: 10px; /* Tyhjä tila kuvan ja tekstin välillä */
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+  /* Show the dropdown content on hover */
+  .notification-li:hover, .dropdown-content {
+    /* display: block; */
+    cursor: pointer;
+  }
+.top-nav li {
+  
+  padding: 10px;
+}
+
+.top-nav li {
+  position: relative;
+}
+
+.top-nav li::after {
+  content: ''; 
+  position: absolute;
+  left: 50%; /* Sijoita viiva keskelle elementtiä vaakasuunnassa */
+  bottom: 0;
+  width: 20%; /* Aseta viivan alkuleveys esimerkiksi 20%: iin */
+  height: 2px;
+  background-color: #519dc1; /* Muuta viivan väriä */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Siirtymäefektit leveyden ja läpinäkyvyyden muuttumiselle */
+  transform: translateX(-50%); /* Siirrä viiva takaisin vasemmalle puolelle sen keskittämiseksi */
+  opacity: 0; /* Aseta läpinäkyvyys aluksi nollaksi */
+  bottom: -5px; /* Säädä tämän arvoa tarvittaessa */
+}
+
+.top-nav li:hover::after {
+  width: 90%; /* Muuta leveys 100%: iin hover-tilassa */
+  opacity: 1; /* Muuta läpinäkyvyys täyteen hover-tilassa */
+}
+
+
+
+/* estää viivan luonnin search-elementille, vain jumala tietää miksi*/
+
+.top-nav li:first-child::after {
+  display: none;
+}
+
+/*kun ollaan sivulla sitä ei näy navissa*/
+.top-nav li.active {
+  display: none;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #519dc1;
+  font-weight: bold;
+}
+
+.search-nav {
+  position: relative; /* Hakutulosten konteksti sijoitetaan tähän suhteessa */
+  width: fit-content; /* Säätää leveyden sisällön mukaan */
+  margin: auto; /* Keskittää containerin */
+}
+.notification-item{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+}
+
+.notification-item:hover{
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.friends-main-container {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 45px;
+  /* tätä täytyy säätää kunhan saadaan lopullinen navbar! */
+}
+
+.hello-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hello-friends {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px; 
+  margin: 40px 0;
+  margin-left: 40px;
+}
+
+.hello-friends h3{
+  margin-left: 20px;
+}
+
+.hello-friends input {
+  width: 80%;
+  height: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.friends-container {
+  padding: 20px;
+}
+
+#friends-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Add this line */
+}
+
+#friends-search{
+  padding: 8px 10px;
+  border: 3px;
+  font-size: 16px; /* esimerkki fontin koosta */
+  border: 1px solid #ccc; /* esimerkki reunuksesta */
+  border-radius: 4px; /* pyöristetyt reunat */
+  margin-left: 50px;
+}
+
+.profile-card {
+  display: flex; /* Add this line */
+  flex-direction: column; /* Add this line */
+  justify-content: space-between; /* Add this line */
+  position: relative;
+  height: 450px;
+  margin: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 800px) {
+  .profile-card {
+    flex: 0 0 calc(50% - 60px); /* 2 cards in a row on medium screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile-card {
+    flex: 0 0 calc(25% - 60px); /* 4 cards in a row on large screens */
+  }
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.profile-header p {
+  margin: 5px 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info h5 {
+  margin: 10px 0;
+}
+
+.manage-dots {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.manage-dots img{
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+#manageDots {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+#manageDots:hover {
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-card h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+#bio {
+  height: 200px;
+  font-size: 14px;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.manageButton {
+  background-color: violet;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.manageButton:hover {
+  background-color: purple;
+}
+
+.manageDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.manageDropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.manageDropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.manageDropdown-content a:hover {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: lightgray;
+}
+
+
+
+.manageDropdown:hover .manageDropdown-content {
+  display: block;
+}
+
+
+.messageButton {
+  background-color: lightblue;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.messageButton:hover {
+  background-color: blue;
+}
+
+/* ================================== viestimodali alkaa ================================== */
+#messageModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#messageModal .modal-content {
+  background-color: #fefefe;
+  
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#messageModal .modal-content h2 {
+  text-align: center;
+  color: #519dc1;
+
+}
+
+#messageModal .modal-content h3 {
+  width: 50%; /* Skaalautuu 90% modaalin leveydestä */
+  max-width: 90%; /* Rajoittaa maksimileveyden 450 pikseliin */
+  margin: 0 auto 11px auto; /* Asettaa sivumarginaalit automaattisesti */
+  border-bottom: 3px solid #519dc1; /* Kolmen pikselin paksuinen viiva alareunaan */
+  margin-bottom: 40px;
+}
+
+
+
+
+.modal-content textarea {
+  width: 85%;
+  height: 100px;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#send-message {
+  background-color: lightblue;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  margin-left: auto; /* Sijoittaa napin oikeaan reunaan */
+  margin-right: 40px;
+}
+
+
+#send-message:hover {
+  background-color: #519dc1;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Asettaa elementit pystysuuntaan */
+  height: 130px; /* Aloituskorkeus */}
+#messagep{
+  margin-left: 40px;
+}
+
+
+/* ================================== viestimodali päättyy ================================== */
+
+/* ================================== kaveripyyntömodali alkaa ================================== */
+
+.temp-friendrequest-container {
+  position: absolute; /* Add this line */
+  top: 60px; /* Adjust this value as needed */
+  right: 0; /* Add this line */
+  margin-right: 20px;
+  
+}
+.friend-request-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /* Add other styles as needed */
+  ;
+  
+}
+
+.frButton {
+  background-color: white;
+  border: none;
+  color: #519dc1;
+  padding: 4px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20x;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+}
+
+.frButton:hover {
+  background-color: #e3e2e2;
+}
+
+#frmodal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.frmodal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 10px;
+  width: 25%;
+  height: 40vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.frmodal-content h3 {
+  width: 50%; /* Skaalautuu 90% modaalin leveydestä */  margin: 0 auto 10px auto; /* Asettaa sivumarginaalit automaattisesti */
+  border-bottom: 3px solid #519dc1; /* Kolmen pikselin paksuinen viiva alareunaan */
+  margin-bottom: 40px;
+}
+
+.close-fr-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-fr-modal:hover,
+.close-fr-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#fr {
+  color: #519dc1;
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  justify-content: center; /* Keskittää sisältöä vaakasuunnassa */
+  align-items: center; /* Keskittää sisältöä pystysuunnassa */
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+#frid {
+  display: flex;
+  align-items: center; /* Keskittää lähettäjän nimen ja napit pystysuunnassa */
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #519dc1; /* Lisää 1 pikselin paksuinen musta viiva alareunaan */
+}
+
+#friend-requests .sender-name {
+  margin-right: auto; /* Asettaa tilaa lähettäjän nimen ja napin välille */
+}
+
+#friend-requests button:first-child {
+  margin-left: auto; /* Asettaa ensimmäisen napin oikeaan reunaan kiinni lähettäjän nimeen */
+  margin-right: 5px;
+  background-color: #519dc1; /* Napin taustaväri */
+  
+}
+#friend-requests button:last-child {
+ 
+  background-color: rgb(252, 59, 59); /* Napin taustaväri */
+  
+}
+
+
+#friend-requests button{
+ 
+  color: white; /* Tekstin väri */
+  border: none; /* Poista reuna */
+  padding: 8px 16px; /* Lisää sisätilaa */
+  border-radius: 25px; /* Pyöristä napin kulmat */
+  cursor: pointer; /* Vaihda kursorin tyyppi osoittaaksesi interaktiivisuutta */
+  transition: background-color 0.3s ease; /* Lisää pehmeä siirtymä taustavärin muutokseen */
+}
+
+
+
+
+
+
+/* ================================== kaveripyyntömodali päättyy ================================== */
+
+.logo-link {
+  position: fixed; /* Kiinnitetään sivun reunaan */
+  top: 10px; /* Etäisyys yläreunasta */
+  left: 10px; /* Etäisyys vasemmasta reunasta */
+}
+
+.logo-image {
+  width: 250px; /* Säädä logon kokoa tarpeen mukaan */
+  height: auto; /* Säilyttää kuvan alkuperäisen kuvasuhteen */
+}
+
+@media (max-width: 1050px) {
+
+
+  .logo-link{
+    position: absolute;
+  }
+  .friends-main-container{
+    padding-top: 100px;
+  }
+}

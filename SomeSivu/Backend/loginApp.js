@@ -1,9 +1,32 @@
+
+
+function hashPassword(password) {
+    //Käytetään Web Cryptography API:a salasanan hashaukseen
+    return new Promise((resolve, reject) => {
+        // Luodaan uusi Uint8Array, joka sisältää salasanan merkit
+        // ja kutsutaan window.crypto.subtle.digest()-metodia
+        window.crypto.subtle.digest('SHA-256', new TextEncoder().encode(password))
+            .then(hash => {
+                const hashedPassword = Array.from(new Uint8Array(hash))
+                    .map(byte => byte.toString(16).padStart(2, '0'))
+                    .join('');
+                resolve(hashedPassword);
+                //palautetaan hashattu salasana
+            })
+            .catch(error => {
+                console.error('Hashing error:', error);
+                reject(error);
+            });
+    });
+
+}
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-
+    hashPassword(password).then(hashedPassword => {
     fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -11,7 +34,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         },
         body: JSON.stringify({
             username: username,
-            password: password,
+            password: hashedPassword,
         }),
     })
     .then(response => {
@@ -37,5 +60,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     .catch((error) => {
         console.error('Error:', error);
         alert(error.message);
-    });
+        });
+    })   
 });

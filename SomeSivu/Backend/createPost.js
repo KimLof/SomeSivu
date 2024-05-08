@@ -31,13 +31,51 @@ document.getElementById('create-post-form').addEventListener('keydown', function
     }
 });
 
+// Rajoitetaan postauksen pituus 200 merkkiin
+document.getElementById('post-content-textarea').addEventListener('input', function () {
+    if (this.value.length > 200) {
+        this.value = this.value.substring(0, 200);
+    }
+    // Päivitetään merkkilaskuri char-counter-elementtiin
+    document.getElementById('char-counter').innerText = this.value.length + '/200';
+});
+
+
+
+
+//HTML-encode XSS vastaan, esim '<' muutetaan '&lt;':ksi jne.
+function htmlEncode(text) {
+    var div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+}
+
+
 document.getElementById('create-post-form').addEventListener('submit', function (event) {
     event.preventDefault();
-
-    let postContent = document.getElementById('post-content-textarea').value;
-    postContent = postContent.replace(/\n/g, '<br>'); // Korvataan kaikki rivinvaihdot <br>-tagilla
+ 
+    let postContent = htmlEncode(document.getElementById('post-content-textarea').value);
     const token = localStorage.getItem('jwtToken');
+    let image = document.getElementById('post-image');
+   
+    let picture = htmlEncode(document.getElementById('post-image-url-textarea').value);
+    const formData = new FormData();
 
+    if (image.files.length > 0) {
+        // If an image file is selected, append it to the FormData object
+        formData.append('image', image.files[0]);
+    } else if (picture.trim() !== "") {
+        // If an image URL is provided, add it to the FormData object
+        formData.append('url', picture);
+    }
+    
+    // Add other form fields to the FormData object
+    formData.append('content', postContent);
+    
+    
+    
+
+    console.log( 'Content:', postContent, 'Picture:', formData)
     if (!token) {
         alert('You must be logged in to create a post!');
         return;
@@ -46,12 +84,9 @@ document.getElementById('create-post-form').addEventListener('submit', function 
     fetch('/api/posts', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         },
-        body: JSON.stringify({
-            content: postContent // Lähetetään lomakkeen tiedot JSON-muodossa
-        })
+        body: formData
     })
         .then(response => {
             if (response.ok) {

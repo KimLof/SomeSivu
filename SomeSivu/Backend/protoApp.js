@@ -1,35 +1,94 @@
-document.getElementById('registerForm').addEventListener('submit', function(e) {
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
+loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    hashPassword(password).then(hashedPassword => {
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            password: hashedPassword,
+        }),
+    })
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Login failed!');
+        }
+    })
+    .then(data => {
+        console.log('Login Response:', data);
+        // Tarkistetaan, sisältääkö vastaus tokenin
+        if(data.token) {
+            // Tallennetaan token selaimen Local Storageen
+            localStorage.setItem('jwtToken', data.token);
+            alert('Login successful! Redirecting...');
+            // Siirrytään someFeed-sivulle
+            window.location.href = '/someFeed.html';
+        } else {
+            throw new Error('No token aquired!');
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert(error.message);
+        });
+    })   
+});
+
+
+
+registerForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const username = document.getElementById('newUsername').value;
     const email = document.getElementById('newEmail').value;
     const password = document.getElementById('newPassword').value;
-    const passwordCheck = document.getElementById('newPasswordCheck').value;
+    const passwordCheck = document.getElementById('newPassword').value;
 
     console.log('Rekisteröitymistiedot:', username, email, password, passwordCheck);
 
     if (password !== passwordCheck) {
-        alert('Salasanat eivät täsmää!');
+        alert('Passwords dont match!');
         return;
     }
     else if (password.length < 8) {
-        alert('Salasanan pitää olla vähintään 8 merkkiä pitkä!');
+        alert('Password must be atleast 8 characters!');
         return;
     }
     else if (password.toLowerCase().includes(username.toLowerCase())) {
-        alert('Salasana ei saa sisältää käyttäjänimeä!');
+        alert('Password cant contain username!');
         return;
     }
     else if (password.toLowerCase().includes(email.toLowerCase())) {
-        alert('Salasana ei saa sisältää sähköpostiosoitetta!');
+        alert('Password cant contain email!');
         return;
     }
     else if (!password.match(/[a-z]/g) || !password.match(/[A-Z]/g) || !password.match(/[0-9]/g)) {
-        alert('Salasanassa pitää olla vähintään yksi pieni kirjain, yksi iso kirjain ja yksi numero!');
+        alert('Password must contain atleast: 1 uppercase letter, 1 lowercase letter and 1 number!');
         return;
     }
     else if (username.length < 3) {
-        alert('Käyttäjänimen pitää olla vähintään 3 merkkiä pitkä!');
+        alert('Username must be longer than 3 characters!');
         return;
     }
     else {
@@ -69,6 +128,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
     })
     }
 });
+
 
 function hashPassword(password) {
     //Käytetään Web Cryptography API:a salasanan hashaukseen

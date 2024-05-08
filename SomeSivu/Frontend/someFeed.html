@@ -3,31 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Some</title>
+    <title>Rabbit Hole</title>
     <link rel="stylesheet" href="styleFeed.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
 </head>
 
 <body>
+    <a href="/Feed" class="logo-link">
+        <img src="pictures/pupulogo.jpg" alt="Logo" class="logo-image">
+    </a>
     <header>
-    <nav class="top-nav">
-        <ul>
-            <li><a href="/profile?profileId=own">Profiili</a></li>
-            <li><a href="/messages">Viestit</a></li>
-            <li><a href="/settings">Asetukset</a></li>
-            <li><a href="/login" id="logout-link">Kirjaudu ulos</a></li> <!-- tää pitäis lisätä myös omalle prfiilille-->
-        </ul>                                                            <!--Poistaa jwt tokenin ku painaa tosta :P-->
-    </nav>
-</header>
+        <nav class="top-nav" id="top-nav">
+            <ul>
+                <li>
+                    <nav class="search-nav">
+                        <div id="user-search">
+                            <input type="text" id="search-input" placeholder="Search for users">
+                            <div id="user-search-results">
+                                <!-- HAKUTULOKSET TÄHÄN -->
+                            </div>
+                        </div>
+                    </nav>
+                </li>
+                <li> <a href="/Feed">Feed</a></li>
+                <li><a href="/profile?profileId=own">Profile</a></li>
+                <li><a href="/Friends">Friends</a></li>
+                <li class="notification-li" id="notification-icon">
+                    <a id="notification-text">Notifications</a>
+                    <div class="dropdown-content">
+                        <!-- Notifications will be dynamically inserted here -->
+                    </div>
+                </li>
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/login" id="logout-link">Logout</a></li>
+            </ul>
 
-<div id="user-search">
-    <input type="text" id="search-input" placeholder="Search for users">
-    <button id="search-button">Search</button>
-</div>
-<div id="user-search-results">
-    <!-- HAKUTULOKSET TÄHÄN -->
-</div>
+        </nav>
+
+
+
+
+    </header>
+
 
 
     <main class="feed">
@@ -38,7 +56,6 @@
         </div>
         
         
-        <button id="toggle-debug">Toggle Debug Data</button>
 
         <!-- The Modal -->
         <div id="create-post-modal" class="modal">
@@ -47,7 +64,15 @@
                 <span class="close">&times;</span>
                 <form id="create-post-form">
                     <h2>Create a new post</h2>
-                    <textarea id="post-content-textarea" placeholder="Write your post here" required></textarea>
+                    <textarea id="post-content-textarea" class="post-content-characters" placeholder="Write your post here" required></textarea>
+                    <!-- Merkkilaskuri, max 200 merkkiö -->
+                    <p id="char-counter">0/200</p>
+                    <label>Upload an image</label>
+                    <input type="file" id="post-image" accept="image/*">
+                    <br> <br>
+                    <label>OR Add an image URL :D</label>
+                    <textarea id="post-image-url-textarea" placeholder="Image URL"></textarea>
+                    
                     <button type="submit" id="send-post-button">Send Post</button>
                 </form>
             </div>
@@ -56,6 +81,12 @@
         <div id="postsContainer"></div> <!-- Tämä renderöi postaukset someFeed.js:ssä -->
     </main>
 
+        <div id="image-modal" class="image-pic-modal" style="display: none;">
+        <div class="content-image-pic-modal" id="image-pic-modali" >
+        <span class="close" id="close-modal" >&times;</span>
+        <div id="modal-image"></div>
+        </div>
+      </div> 
 
     <script src="/js/someFeed.js"></script>
     <script src="/js/createPost.js"></script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friends</title>
+    <link rel="stylesheet" href="styleFriends.css">
+</head>
+
+<body>
+    <a href="/Feed" class="logo-link">
+        <img src="pictures/pupulogo.jpg" alt="Logo" class="logo-image">
+    </a>
+    
+    <header>
+        <nav class="top-nav" id="top-nav">
+            <ul>
+                <li>
+                    <nav class="search-nav">
+                        <div id="user-search">
+                            <input type="text" id="search-input" placeholder="Search for users">
+                            <div id="user-search-results">
+                                <!-- HAKUTULOKSET TÄHÄN -->
+                            </div>
+                        </div>
+                    </nav>
+                </li>
+                <li> <a href="/Feed">Feed</a></li>
+                <li><a href="/profile?profileId=own">Profile</a></li>
+                <li><a href="/Friends">Friends</a></li>
+                <li class="notification-li" id="notification-icon">
+                    <a id="notification-text">Notifications</a>
+                    <div class="dropdown-content">
+                        <!-- Notifications will be dynamically inserted here -->
+                    </div>
+                </li>
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/login" id="logout-link">Logout</a></li>
+            </ul>
+
+        </nav>
+
+
+
+
+    </header>
+
+
+    <main class="friends-main-container">
+
+        <div class="temp-friendrequest-container">
+            <!-- tässä oli ideana tehdä vain väliaikainen, kaveripyynnöt voisi siirtää mahdollisesti ilmoitussivulle? -->
+
+            <!-- Add this modal to your HTML -->
+            <div id="frmodal" class="friend-request-modal">
+              <div class="frmodal-content">
+                <span class="close-fr-modal">&times;</span>
+                <p id="fr">Friend Requests</p>
+                <h3></h3>
+                <!-- Add your friend requests here -->
+                <div id="friend-requests"></div>
+              </div>
+            </div>
+        </div>
+
+        <div class="hello-container">
+            <div class="hello-friends" id="hello-friends">
+                <!-- <h3>Search friends</h3> -->
+                <!-- aluksi näytetään kaikki kaverit, input kentän onchange eventillä filtteröidään kavereita -->
+                <input class="friends-search" id="friends-search"></input>
+                <button id="openFriendRequestModal" class="frButton">Friend Requests</button>
+
+            </div>
+        </div>
+
+
+        <div class="friends-container" id="friends-container">
+
+            <div id="friends-list"></div> <!-- Tämä renderöi postaukset someFeed.js:ssä -->
+
+
+            <div id="messageModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Messages</h2>
+                    <h3></h3>
+                    <div id="messages-display"></div>
+                    <form id="message-form">
+                        <div class="message-container">
+                            <textarea id="message-text" placeholder="Type your message here..."></textarea>
+                            <button type="submit" id="send-message">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="/js/friendsApp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+</html>
